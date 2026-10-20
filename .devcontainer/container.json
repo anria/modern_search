@@ -1,0 +1,24 @@
+{
+  "name": "Python uv Development",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  
+  // Set the hardware or machine type requirements here
+  "hostRequirements": {
+    "cpus": 4,           // Minimum number of CPU cores (e.g., 2, 4, 8, 16)
+    "memory": "16gb",     // Minimum RAM (supports kb, mb, gb, tb)
+    "storage": "64gb",   // Minimum disk space 
+    "gpu": "optional"    // Options: true, false, or "optional"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${WorkspaceFolder}/.venv/bin/python"
+      }
+    }
+  },
+  "postCreateCommand": "pip install uv && uv sync"
+}
